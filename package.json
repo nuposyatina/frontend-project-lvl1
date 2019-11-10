@@ -1,14 +1,19 @@
 {
-  "name": "brain-games",
+  "name": "nuposyatina-brain-games",
   "version": "1.0.0",
   "description": "hexlet first project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
+    "prepublishOnly": "npm run build"
   },
   "bin": {
-    "brain-games": "./src/bin/brain-games.js"
+    "brain-games": "dist/bin/brain-games.js"
   },
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nuposyatina/frontend-project-lvl1.git"
@@ -19,7 +24,7 @@
     "url": "https://github.com/nuposyatina/frontend-project-lvl1/issues"
   },
   "homepage": "https://github.com/nuposyatina/frontend-project-lvl1#readme",
-  "dependencies": {
+  "devDependencies": {
     "@babel/cli": "^7.7.0",
     "@babel/core": "^7.7.2",
     "@babel/node": "^7.7.0",
