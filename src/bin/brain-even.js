@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import askName from '..';
-import play from '../brain-even';
+import play from '../games/brain-even';
 import sayWelcome from '../welcome';
 
 sayWelcome();
