@@ -4,6 +4,6 @@ import play from '../games/brain-calc';
 import sayWelcome from '../welcome';
 
 sayWelcome();
-console.log('What is the result of the expression?');
 const userName = askName();
+console.log('What is the result of the expression?');
 play(userName);
