@@ -3,8 +3,10 @@
 [![Build Status](https://travis-ci.com/nuposyatina/frontend-project-lvl1.svg?branch=master)](https://travis-ci.com/nuposyatina/frontend-project-lvl1)
 
 Установка пакета:
-[![asciicast](https://asciinema.org/a/ER23apJs5hc24hG0ZfUOACzwh.svg)](https://asciinema.org/a/ER23apJs5hc24hG0ZfUOACzwh)
+[![asciicast](https://asciinema.org/a/axuDo0yt2sjEozDerMLduIRGH.svg)](https://asciinema.org/a/axuDo0yt2sjEozDerMLduIRGH)
 Игра brain-even:
 [![asciicast](https://asciinema.org/a/ZQjUrCQsQcsoQs10luMcnnp4Y.svg)](https://asciinema.org/a/ZQjUrCQsQcsoQs10luMcnnp4Y)
 Игра brain-calc:
 [![asciicast](https://asciinema.org/a/5F754NxF4u8Zey9jWSERkqsge.svg)](https://asciinema.org/a/5F754NxF4u8Zey9jWSERkqsge)
+Игра brain-gcd:
+[![asciicast](https://asciinema.org/a/heTmNZ5nFWuO5jlpo7NcoFXNQ.svg)](https://asciinema.org/a/heTmNZ5nFWuO5jlpo7NcoFXNQ)
