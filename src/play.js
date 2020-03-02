@@ -4,7 +4,7 @@ export default (name, getQuestion) => {
   const GAME_ROUNDS_COUNTER = 3;
   for (let i = 1; i <= GAME_ROUNDS_COUNTER; i += 1) {
     const { text, result } = getQuestion();
-    const userAnswer = +getUserAnswer(text);
+    const userAnswer = typeof result === 'number' ? +getUserAnswer(text) : getUserAnswer(text);
     if (userAnswer !== result) {
       console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${result}.\nLet's try again, ${name}!`);
       return;
