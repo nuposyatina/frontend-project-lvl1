@@ -2,8 +2,9 @@
 import askName from '..';
 import play from '../games/brain-progression';
 import sayWelcome from '../welcome';
+import sayRules from '../rules';
 
 sayWelcome();
 const userName = askName();
-console.log('What number is missing in the progression?');
+sayRules('What number is missing in the progression?');
 play(userName);

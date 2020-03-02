@@ -5,7 +5,9 @@ import getQuestionNumbers from '../lib/getQuestionNumbers';
 
 
 const getOperation = (ops) => {
-  const randomIndex = getRandomNumber(0, ops.length - 1);
+  const FIRST_INDEX = 0;
+  const LAST_INDEX = ops.length - 1;
+  const randomIndex = getRandomNumber(FIRST_INDEX, LAST_INDEX);
   return ops[randomIndex];
 };
 
