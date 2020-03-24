@@ -1,5 +1,7 @@
-import play from '../play';
+import play from '..';
 import getRandomNumber from '../lib/getRandomNumber';
+
+const RULES = 'What number is missing in the progression?';
 
 const getQuestionText = (progression, missedIndex) => [...progression.slice(0, missedIndex), '..', ...progression.slice(missedIndex + 1)].join(' ');
 
@@ -30,4 +32,4 @@ const getQuestion = () => {
   };
 };
 
-export default (name) => play(name, getQuestion);
+export default () => play(getQuestion, RULES);

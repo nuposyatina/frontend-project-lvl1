@@ -1,7 +1,9 @@
 
-import play from '../play';
+import play from '..';
 import getRandomNumber from '../lib/getRandomNumber';
 import getQuestionNumbers from '../lib/getQuestionNumbers';
+
+const RULES = 'What is the result of the expression?';
 
 
 const getOperation = (ops) => {
@@ -35,4 +37,4 @@ const getQuestion = () => {
   };
 };
 
-export default (name) => play(name, getQuestion);
+export default () => play(getQuestion, RULES);

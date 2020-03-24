@@ -1,6 +1,15 @@
-import play from '../play';
+import play from '..';
 import getQuestionNumbers from '../lib/getQuestionNumbers';
-import getDividers from '../lib/getDividers';
+
+const RULES = 'Find the greatest common divisor of given numbers';
+
+const getDividers = (num) => {
+  const dividers = [];
+  for (let i = 1; i <= num; i += 1) {
+    if (num % i === 0) dividers.push(i);
+  }
+  return dividers;
+};
 
 const getQuestionText = (first, second) => `${first} ${second}`;
 
@@ -22,4 +31,4 @@ const getQuestion = () => {
   };
 };
 
-export default (name) => play(name, getQuestion);
+export default () => play(getQuestion, RULES);

@@ -1,5 +1,7 @@
-import play from '../play';
+import play from '..';
 import getRandomNumber from '../lib/getRandomNumber';
+
+const RULES = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 const getCorrectAnswer = (number) => (number % 2 === 0 ? 'yes' : 'no');
 
@@ -14,4 +16,4 @@ const getQuestion = () => {
   };
 };
 
-export default (name) => play(name, getQuestion);
+export default () => play(getQuestion, RULES);
