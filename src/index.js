@@ -10,7 +10,7 @@ const askName = () => {
 
 const sayRules = (rules) => console.log(rules);
 
-const getUserAnswer = (text) => readlineSync.question(`Question: ${text}\nYour answer: `);
+const getUserAnswer = (question) => readlineSync.question(`Question: ${question}\nYour answer: `);
 
 export default (getQuestion, rules) => {
   sayWelcome();
@@ -22,10 +22,10 @@ export default (getQuestion, rules) => {
   sayRules(rules);
   const GAME_ROUNDS_COUNTER = 3;
   for (let i = 1; i <= GAME_ROUNDS_COUNTER; i += 1) {
-    const { text, result } = getQuestion();
-    const userAnswer = typeof result === 'number' ? +getUserAnswer(text) : getUserAnswer(text);
-    if (userAnswer !== result) {
-      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${result}.\nLet's try again, ${name}!`);
+    const { question, correctAnswer } = getQuestion();
+    const userAnswer = typeof correctAnswer === 'number' ? +getUserAnswer(question) : getUserAnswer(question);
+    if (userAnswer !== correctAnswer) {
+      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}.\nLet's try again, ${name}!`);
       return;
     }
     console.log('Correct!');

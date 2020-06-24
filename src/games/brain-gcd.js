@@ -1,7 +1,7 @@
 import play from '..';
 import getQuestionNumbers from '../lib/getQuestionNumbers';
 
-const RULES = 'Find the greatest common divisor of given numbers';
+const description = 'Find the greatest common divisor of given numbers';
 
 const getDividers = (num) => {
   const dividers = [];
@@ -23,12 +23,12 @@ const getResult = (first, second) => {
 
 const getQuestion = () => {
   const { first, second } = getQuestionNumbers();
-  const text = getQuestionText(first, second);
-  const result = getResult(first, second);
+  const question = getQuestionText(first, second);
+  const correctAnswer = getResult(first, second);
   return {
-    text,
-    result,
+    question,
+    correctAnswer,
   };
 };
 
-export default () => play(getQuestion, RULES);
+export default () => play(getQuestion, description);

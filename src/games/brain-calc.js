@@ -3,7 +3,7 @@ import play from '..';
 import getRandomNumber from '../lib/getRandomNumber';
 import getQuestionNumbers from '../lib/getQuestionNumbers';
 
-const RULES = 'What is the result of the expression?';
+const description = 'What is the result of the expression?';
 
 
 const getOperation = (ops) => {
@@ -30,11 +30,11 @@ const getQuestion = () => {
   const { first, second } = getQuestionNumbers();
   const operation = getOperation(OPERATIONS);
   const questionText = getQuestionText(first, second, operation);
-  const result = getResult(first, second, operation);
+  const correctAnswer = getResult(first, second, operation);
   return {
-    text: questionText,
-    result,
+    question: questionText,
+    correctAnswer,
   };
 };
 
-export default () => play(getQuestion, RULES);
+export default () => play(getQuestion, description);
