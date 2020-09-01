@@ -19,7 +19,7 @@ const getProgression = (length) => {
   return progression;
 };
 
-const getQuestion = () => {
+const getGameData = () => {
   const PROGRESSION_LENGTH = 10;
   const MIN_INDEX = 0;
   const MAX_INDEX = PROGRESSION_LENGTH - 1;
@@ -32,4 +32,4 @@ const getQuestion = () => {
   };
 };
 
-export default () => play(getQuestion, description);
+export default () => play(getGameData, description);

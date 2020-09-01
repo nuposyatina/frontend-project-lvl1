@@ -3,17 +3,17 @@ import getRandomNumber from '../lib/getRandomNumber';
 
 const description = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-const getCorrectAnswer = (number) => (number % 2 === 0 ? 'yes' : 'no');
+const isEven = (number) => number % 2 === 0;
 
-const getQuestion = () => {
+const getGameData = () => {
   const MIN_NUMBER_VALUE = 1;
   const MAX_NUMBER_VALUE = 100;
   const number = getRandomNumber(MIN_NUMBER_VALUE, MAX_NUMBER_VALUE);
-  const correctAnswer = getCorrectAnswer(number);
+  const correctAnswer = isEven(number) ? 'yes' : 'no';
   return {
-    question: `${number}`,
+    question: number.toString(),
     correctAnswer,
   };
 };
 
-export default () => play(getQuestion, description);
+export default () => play(getGameData, description);

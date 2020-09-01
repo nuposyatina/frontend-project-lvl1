@@ -21,7 +21,7 @@ const getResult = (first, second) => {
   return Math.max(...bigDividersArray.filter((el) => smallDividersArray.includes(el)));
 };
 
-const getQuestion = () => {
+const getGameData = () => {
   const { first, second } = getQuestionNumbers();
   const question = getQuestionText(first, second);
   const correctAnswer = getResult(first, second);
@@ -31,4 +31,4 @@ const getQuestion = () => {
   };
 };
 
-export default () => play(getQuestion, description);
+export default () => play(getGameData, description);

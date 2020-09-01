@@ -6,7 +6,7 @@ const description = 'Answer "yes" if the number is prime, otherwise answer "no".
 const isPrime = (num) => {
   if (num < 2) return false;
 
-  for (let i = 2; i < num; i += 1) {
+  for (let i = 2; i <= num / 2; i += 1) {
     if (num % i === 0) return false;
   }
 
@@ -15,15 +15,15 @@ const isPrime = (num) => {
 
 const getCorrectAnswer = (number) => (isPrime(number) ? 'yes' : 'no');
 
-const getQuestion = () => {
+const getGameData = () => {
   const MIN_NUMBER_VALUE = 1;
   const MAX_NUMBER_VALUE = 100;
   const number = getRandomNumber(MIN_NUMBER_VALUE, MAX_NUMBER_VALUE);
   const correctAnswer = getCorrectAnswer(number);
   return {
-    question: `${number}`,
+    question: number.toString(),
     correctAnswer,
   };
 };
 
-export default () => play(getQuestion, description);
+export default () => play(getGameData, description);

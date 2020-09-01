@@ -1,9 +1,14 @@
 
 import play from '..';
 import getRandomNumber from '../lib/getRandomNumber';
-import getQuestionNumbers from '../lib/getQuestionNumbers';
 
 const description = 'What is the result of the expression?';
+const OPERATIONS = ['+', '-', '*'];
+const operationsMap = {
+  '+': (num1, num2) => num1 + num2,
+  '-': (num1, num2) => num1 - num2,
+  '*': (num1, num2) => num1 * num2,
+};
 
 
 const getOperation = (ops) => {
@@ -15,19 +20,14 @@ const getOperation = (ops) => {
 
 
 const getResult = (first, second, operation) => {
-  const operations = {
-    '+': (num1, num2) => num1 + num2,
-    '-': (num1, num2) => num1 - num2,
-    '*': (num1, num2) => num1 * num2,
-  };
-  return operations[operation](first, second);
+  return operationsMap[operation](first, second);
 };
 
 const getQuestionText = (first, second, operation) => `${first} ${operation} ${second}`;
 
-const getQuestion = () => {
-  const OPERATIONS = ['+', '-', '*'];
-  const { first, second } = getQuestionNumbers();
+const getGameData = () => {
+  const first = getRandomNumber(1, 100);
+  const second = getRandomNumber(1, 100);
   const operation = getOperation(OPERATIONS);
   const questionText = getQuestionText(first, second, operation);
   const correctAnswer = getResult(first, second, operation);
@@ -37,4 +37,4 @@ const getQuestion = () => {
   };
 };
 
-export default () => play(getQuestion, description);
+export default () => play(getGameData, description);
