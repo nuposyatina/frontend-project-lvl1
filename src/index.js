@@ -5,7 +5,7 @@ const getUserAnswer = (question) => readlineSync.question(`Question: ${question}
 export default (getGameData, rules) => {
   console.log('Welcome to the Brain Games!');
   const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${userName}!`);
+  console.log(`Hello, ${name}!`);
   // у игры brain-games нет вопроса для пользователя и правил игры,
   // она только спрашивает его имя.
   // Поэтому выходим из функции

@@ -1,5 +1,5 @@
 import play from '..';
-import getQuestionNumbers from '../lib/getQuestionNumbers';
+import getRandomNumber from '../lib/getRandomNumber';
 
 const description = 'Find the greatest common divisor of given numbers';
 
@@ -22,7 +22,8 @@ const getResult = (first, second) => {
 };
 
 const getGameData = () => {
-  const { first, second } = getQuestionNumbers();
+  const first = getRandomNumber(1, 100);
+  const second = getRandomNumber(1, 100);
   const question = getQuestionText(first, second);
   const correctAnswer = getResult(first, second);
   return {

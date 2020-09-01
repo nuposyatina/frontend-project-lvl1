@@ -19,9 +19,7 @@ const getOperation = (ops) => {
 };
 
 
-const getResult = (first, second, operation) => {
-  return operationsMap[operation](first, second);
-};
+const getResult = (first, second, operation) => operationsMap[operation](first, second);
 
 const getQuestionText = (first, second, operation) => `${first} ${operation} ${second}`;
 
