@@ -1,6 +1,8 @@
 import play from '..';
 import getRandomNumber from '../lib/getRandomNumber';
 
+const MIN_NUMBER_VALUE = 1;
+const MAX_NUMBER_VALUE = 100;
 const description = 'Answer "yes" if the number is prime, otherwise answer "no".';
 
 const isPrime = (num) => {
@@ -16,8 +18,6 @@ const isPrime = (num) => {
 const getCorrectAnswer = (number) => (isPrime(number) ? 'yes' : 'no');
 
 const getGameData = () => {
-  const MIN_NUMBER_VALUE = 1;
-  const MAX_NUMBER_VALUE = 100;
   const number = getRandomNumber(MIN_NUMBER_VALUE, MAX_NUMBER_VALUE);
   const correctAnswer = getCorrectAnswer(number);
   return {

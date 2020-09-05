@@ -1,34 +1,33 @@
 import play from '..';
 import getRandomNumber from '../lib/getRandomNumber';
 
+const PROGRESSION_LENGTH = 10;
+const MIN_INDEX = 0;
+const MAX_INDEX = PROGRESSION_LENGTH - 1;
+const MIN_NUMBER_VALUE = 1;
+const MAX_NUMBER_VALUE = 100;
 const description = 'What number is missing in the progression?';
 
-const getQuestionText = (progression, missedIndex) => [...progression.slice(0, missedIndex), '..', ...progression.slice(missedIndex + 1)].join(' ');
+const getQuestion = (progression, missedIndex) => [...progression.slice(0, missedIndex), '..', ...progression.slice(missedIndex + 1)].join(' ');
 
-const getProgression = (length) => {
-  const MIN_NUMBER_VALUE = 1;
-  const MAX_NUMBER_VALUE = 100;
-  const start = getRandomNumber(MIN_NUMBER_VALUE, MAX_NUMBER_VALUE);
-  const step = getRandomNumber(MIN_NUMBER_VALUE, MAX_NUMBER_VALUE);
-  const progression = [start];
-  for (let i = 1; i < length; i += 1) {
-    const lastElement = progression[progression.length - 1];
-    const newElement = lastElement + step;
+const makeProgression = (start, step, length) => {
+  const progression = [];
+  for (let i = 0; i < length; i += 1) {
+    const newElement = start + i * step;
     progression.push(newElement);
   }
   return progression;
 };
 
 const getGameData = () => {
-  const PROGRESSION_LENGTH = 10;
-  const MIN_INDEX = 0;
-  const MAX_INDEX = PROGRESSION_LENGTH - 1;
-  const progression = getProgression(PROGRESSION_LENGTH);
+  const firstProgressionElement = getRandomNumber(MIN_NUMBER_VALUE, MAX_NUMBER_VALUE);
+  const progressionStep = getRandomNumber(MIN_NUMBER_VALUE, MAX_NUMBER_VALUE);
+  const progression = makeProgression(firstProgressionElement, progressionStep, PROGRESSION_LENGTH);
   const missedIndex = getRandomNumber(MIN_INDEX, MAX_INDEX);
-  const question = getQuestionText(progression, missedIndex);
+  const question = getQuestion(progression, missedIndex);
   return {
     question,
-    correctAnswer: progression[missedIndex],
+    correctAnswer: progression[missedIndex].toString(),
   };
 };
 

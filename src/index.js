@@ -1,20 +1,16 @@
 import readlineSync from 'readline-sync';
 
+const GAME_ROUNDS_COUNTER = 3;
 const getUserAnswer = (question) => readlineSync.question(`Question: ${question}\nYour answer: `);
 
-export default (getGameData, rules) => {
+export default (getGameData, description) => {
   console.log('Welcome to the Brain Games!');
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
-  // у игры brain-games нет вопроса для пользователя и правил игры,
-  // она только спрашивает его имя.
-  // Поэтому выходим из функции
-  if (getGameData === null) return;
-  console.log(rules);
-  const GAME_ROUNDS_COUNTER = 3;
+  console.log(description);
   for (let i = 1; i <= GAME_ROUNDS_COUNTER; i += 1) {
     const { question, correctAnswer } = getGameData();
-    const userAnswer = typeof correctAnswer === 'number' ? +getUserAnswer(question) : getUserAnswer(question);
+    const userAnswer = getUserAnswer(question);
     if (userAnswer !== correctAnswer) {
       console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}.\nLet's try again, ${name}!`);
       return;

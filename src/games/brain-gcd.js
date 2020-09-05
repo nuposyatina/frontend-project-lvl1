@@ -11,24 +11,24 @@ const getDividers = (num) => {
   return dividers;
 };
 
-const getQuestionText = (first, second) => `${first} ${second}`;
+const getQuestion = (first, second) => `${first} ${second}`;
 
-const getResult = (first, second) => {
+const getGcd = (first, second) => {
   const firstDividers = getDividers(first);
   const secondDividers = getDividers(second);
-  const smallDividersArray = first >= second ? secondDividers : firstDividers;
-  const bigDividersArray = first >= second ? firstDividers : secondDividers;
-  return Math.max(...bigDividersArray.filter((el) => smallDividersArray.includes(el)));
+  const smallDividers = first >= second ? secondDividers : firstDividers;
+  const bigDividers = first >= second ? firstDividers : secondDividers;
+  return Math.max(...bigDividers.filter((el) => smallDividers.includes(el)));
 };
 
 const getGameData = () => {
   const first = getRandomNumber(1, 100);
   const second = getRandomNumber(1, 100);
-  const question = getQuestionText(first, second);
-  const correctAnswer = getResult(first, second);
+  const question = getQuestion(first, second);
+  const correctAnswer = getGcd(first, second);
   return {
     question,
-    correctAnswer,
+    correctAnswer: correctAnswer.toString(),
   };
 };
 
