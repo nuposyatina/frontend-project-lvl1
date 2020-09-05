@@ -8,7 +8,7 @@ const operationsMap = {
   '-': (num1, num2) => num1 - num2,
   '*': (num1, num2) => num1 * num2,
 };
-const operations = Object.keys(operationsMap);
+const OPERATIONS = Object.keys(operationsMap);
 
 
 const getRandomOperation = (operations) => {
@@ -26,7 +26,7 @@ const getQuestion = (first, second, operation) => `${first} ${operation} ${secon
 const getGameData = () => {
   const first = getRandomNumber(1, 100);
   const second = getRandomNumber(1, 100);
-  const operation = getRandomOperation(operations);
+  const operation = getRandomOperation(OPERATIONS);
   const questionText = getQuestion(first, second, operation);
   const correctAnswer = calculate(first, second, operation);
   return {
